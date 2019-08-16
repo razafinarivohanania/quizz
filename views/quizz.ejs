@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title><%= title %></title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="/public/css/quizz.css">
+</head>
+
+<body>
+    <noscript>This application needs javascript</noscript>
+    <div id="quizz-content">
+        <% if (question) { %>
+        <div><%= question %></div>
+        <div>
+            <% for (const response of responses) { %>
+            <p><input type="radio" name="quizz" id="<%= response.id %>" data-nextPath="<%= response.nextPath %>" /><label
+                    for="<%= response.id %>"><%= response.text %></label></p>
+            <% } %>
+        </div>
+        <% } %>
+
+        <div id="quizz-navigation">
+            <% if (navigation.previous) { %>
+            <button data-href="<%= navigation.previous.href %>"
+                data-role="previous"><%= navigation.previous.text %></button>
+            <% } if (navigation.next) { %>
+            <button data-href="<%= navigation.next.href %>"
+                data-role="next"><%= navigation.next.text %></button>
+            <% } %>
+        </div>
+    </div>
+    <script type="text/javascript" src="/public/js/quizz.js"></script>
+</body>
+
+</html>

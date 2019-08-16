@@ -1,0 +1,76 @@
+{
+    "global":{
+        "page": {
+            "title":"Quizz wiki connection",
+            "noscript": "Cette application nécessite l'activation du JavaScript"
+        }
+    },
+    "pages": [
+        {
+            "path": "/",
+            "type": "ejs",
+            "file": "ejs/home.ejs",
+            "parameter": {
+                "title": "Quizz wiki connection"
+            }
+        },
+        {
+            "path": "/1",
+            "type": "quizz",
+            "title": "Quizz wiki connection",
+            "question": "Quel est le problème de connexion?",
+            "responses": [
+                {
+                    "nextPath": "/1/1",
+                    "text": "Statut différent de 200"
+                },
+                {
+                    "nextPath": "/1/2",
+                    "text": "Statut 200 mais contenu vide"
+                },
+                {
+                    "nextPath": "/1/3",
+                    "text": "Page ne répond pas"
+                },
+                {
+                    "nextPath": "/1/4",
+                    "text": "Exception"
+                }
+            ],
+            "navigation": {
+                "next": "Suivant"
+            }
+        },
+        {
+            "path": "/1/1",
+            "type": "quizz",
+            "title": "Quizz wiki la valeur du statut?",
+            "responses": [
+                {
+                    "nextPath": "/1/1/1",
+                    "text": "400"
+                },
+                {
+                    "nextPath": "/1/1/2",
+                    "text": "403"
+                },
+                {
+                    "nextPath": "/1/1/3",
+                    "text": "407"
+                },
+                {
+                    "nextPath": "/1/1/4",
+                    "text": "429"
+                },
+                {
+                    "nextPath": "/1/1/5",
+                    "text": "503"
+                }
+            ],
+            "navigation": {
+                "previous": "Précédent",
+                "next": "Suivant"
+            }
+        }
+    ]
+}
